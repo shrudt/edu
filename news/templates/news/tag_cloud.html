@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    {% for i in tags %}
+      <div class="card" style="width: 18rem; margin: 10px; background-color: #1b2024">
+        <div class="card-body" align="center">
+          <a href="/tag/{{ i.slug }}" class="tag-name"> {{ i.tag_name }} </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+
+
+

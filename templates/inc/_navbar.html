@@ -1,0 +1,38 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-dark" >
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'media/mango.png' %}" alt="" width="30" height="30" class="d-inline-block align-text-top">
+        ManGo
+        </a>
+        {% if request.user.is_authenticated %}
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-button" href="{% url 'tags' %}"> Tag Cloud</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-button"   href="{% url 'logout' %}">Log out</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-button"  href="{% url 'add_news' %}">Add news</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-button"  href="{% url 'user_news' %}">My news</a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-button" href="{% url 'tags' %}"> Tag Cloud</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-button"   href="{% url 'login' %}">Log In</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-button"  href="{% url 'singup' %}">Sing Up</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+</nav>

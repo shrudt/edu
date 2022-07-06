@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <h2  align="center" style="color:white"> {{news.title}} </h2>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6" align="center">
+            <img src="https://via.placeholder.com/150C/O" height="400px" >
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div align="center" style="color:white"> {{news.content}}</div>
+    </div>
+    <div class="row">
+        <div class="col-12" >
+            <div style="color: white; margin: 10px"> Tags: </div>
+        </div>
+        <div class="col">
+        {%for i in tags %}
+            <a href="/tag/{{ i.id }}" style="text-decoration: none; color:black; background-color: yellow; border-radius: 10px; padding: 5px">{{ i.tag_name }}</a>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row-justify-content-center" style="margin-top: 20px;">
+    <div class="col" align="center">
+        <h5 style="color:white"> Comments </h5>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10" align="center">
+            <form method="post" style="margin-bottom: 30px;">
+                {% if request.user.is_authenticated %}
+                {% csrf_token %}
+                <div class="input-group">
+                    {{ form.content }}
+                  <button class="btn btn-outline-secondary" type="submit">Send</button>
+                </div>
+                {% else %}
+                <div class="input-group">
+                  <input disabled type="text" class="form-control" placeholder="Log in or sing up to leave a comment" aria-label="Recipient's username with two button addons">
+                  <a href="{% url 'login' %}" class="btn btn-outline-secondary" type="button">Log in</a>
+                  <a href="{% url 'singup' %}" class="btn btn-outline-secondary"  type="button">Sing up</a>
+                </div>
+                {% endif %}
+            </form>
+         </div>
+    {% for comment in comments %}
+        <div class="col-10">
+            <div class="card text-bg-secondary mb-3">
+                <div class="card-body">
+                    <div class="card-title">{{ comment.user }} {{ comment.date }}</div>
+                    <p class="card-text">{{ comment.content }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

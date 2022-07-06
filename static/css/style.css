@@ -1,0 +1,72 @@
+body{
+    background-color: black;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.nav-button{
+    padding: 7px;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: white;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none
+}
+
+.nav-button:hover{
+    color:white;
+}
+
+.read-more{
+    text-decoration: none;
+    color: yellow;
+    border: 2px solid yellow;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.read-more:hover{
+    transition: background-color 0.2s ease-in;
+    color: yellow;
+    background-color: blue;
+}
+
+.card-footer{
+    padding: 15px;
+}
+
+.tag-name{
+    color: white;
+    text-decoration: none;
+}
+
+.tx:hover {
+    color: yellow;
+}
+
+
+.errorlist{
+    color:red;
+}
+li{
+    list-style-type: none;
+}
+
+.auth-button{
+    margin-top: 20px;
+    padding: 7px;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: black;
+}
+
+label{
+    color: white;
+}

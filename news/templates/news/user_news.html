@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <h1 style="color:white" align="center"> Your news </h1>
+    {% for i in news %}
+      <div class="card" style="width: 18rem; margin: 10px; background-color: #1b2024">
+        <div class="card-body">
+          <h5 class="card-title"  style="color: white">{{ i.title }}</h5>
+          <p class="card-text" style="color: white">{{ i.content|stringformat:".100s" }}...</p>
+        </div>
+        <div class="card-footer">
+          <a href="/news/{{ i.id }}" class="read-more">Read more</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

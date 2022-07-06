@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6" align="center">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div style="color:white">Username</div>
+                {{ form.username }} <br>
+                {{ form.username.errors }} <br>
+                <div style="color:white">Password</div>
+                {{ form.password1 }} <br>
+                {{ form.password1.errors }} <br>
+                <div style="color:white">Confirm password</div>
+                {{ form.password2 }} <br>
+                {{ form.password2.errors }} <br>
+                <button class='auth-button' style="margin-top:0px" type="submit"> Create account </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

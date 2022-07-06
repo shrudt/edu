@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<div class="container">
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group row justify-content-center" style="margin-top:20px">
+    <div class="col-6" align="center">
+      {{ form.title }}
+    </div>
+  </div>
+  <div class="form-group row justify-content-center" style="margin-top:20px">
+    <div class="col-6" align="center">
+
+      {{ form.content }}
+    </div>
+  </div>
+
+    <div class="form-group row justify-content-center" >
+      <div class="col-5">
+
+        <div style="color:white" align="center">Choose tags</div>
+        {% for i in form.tag %}
+        {{ i }} &nbsp &nbsp
+        {% endfor %}
+
+    </div>
+    </div>
+
+  <div class="form-group row justify-content-center" style="margin-top:20px">
+    <div class="col-6" align="center">
+      <button type="submit" class="btn btn-primary">Post</button>
+    </div>
+  </div>
+</form>
+</div>
+
+{% endblock %}
